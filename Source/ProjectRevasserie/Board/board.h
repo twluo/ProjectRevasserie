@@ -21,6 +21,15 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Functions")
+	virtual TArray<AboardTile*> getNeighbors(int32 x, int32 y);
+
+	UFUNCTION(BlueprintCallable, Category = "Functions")
+	AboardTile* getTile(int32 x, int32 y);
+
+	UFUNCTION(BlueprintCallable, Category = "Functions")
+	bool inBounds(int32 x, int32 y);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (ClampMin = 1, UIMin = 1))
 	int32 NumOfTilesX;
 

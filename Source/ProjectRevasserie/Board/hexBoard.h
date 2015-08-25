@@ -14,6 +14,8 @@ class PROJECTREVASSERIE_API AhexBoard : public Aboard
 	GENERATED_BODY()
 	
 	
-	
+public:
+
+	virtual TArray<AboardTile*> getNeighbors(int32 x, int32 y) override;
 	
 };

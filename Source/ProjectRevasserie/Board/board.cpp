@@ -26,5 +26,18 @@ void Aboard::Tick( float DeltaTime )
 
 }
 
+TArray<AboardTile*> Aboard::getNeighbors(int32 x, int32 y) {
+	return mapArray;
+}
 
+AboardTile* Aboard::getTile(int32 x, int32 y) {
+	int32 temp = y * NumOfTilesX + x;
+	return mapArray[temp];
+}
 
+bool Aboard::inBounds(int32 x, int32 y) {
+	if (y >= 0 && y < NumOfTilesY && x >= 0 && x < NumOfTilesX)
+		return true;
+	else
+		return false;
+}
