@@ -65,7 +65,6 @@ TArray<AboardTile*> AhexBoard::getTilesInRange(int32 x, int32 y, int32 range) {
 	int32 cost = 0;
 	Queue.Enqueue(TPair<AboardTile*, int32>(TPairInitializer<AboardTile*, int32>(tempTile,cost)));
 	while(!Queue.IsEmpty()) {
-
 		TPair<AboardTile*, int32> tempPair;
 		Queue.Dequeue(tempPair);
 		tempTile = tempPair.Key;
