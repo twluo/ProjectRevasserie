@@ -30,6 +30,10 @@ TArray<AboardTile*> Aboard::getNeighbors(int32 x, int32 y) {
 	return mapArray;
 }
 
+TArray<AboardTile*> Aboard::getTilesInRange(int32 x, int32 y, int32 range) {
+	return mapArray;
+}
+
 AboardTile* Aboard::getTile(int32 x, int32 y) {
 	int32 temp = y * NumOfTilesX + x;
 	return mapArray[temp];

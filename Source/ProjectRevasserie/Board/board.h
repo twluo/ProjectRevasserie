@@ -25,6 +25,9 @@ public:
 	virtual TArray<AboardTile*> getNeighbors(int32 x, int32 y);
 
 	UFUNCTION(BlueprintCallable, Category = "Functions")
+	virtual TArray<AboardTile*> getTilesInRange(int32 x, int32 y, int32 range);
+
+	UFUNCTION(BlueprintCallable, Category = "Functions")
 	AboardTile* getTile(int32 x, int32 y);
 
 	UFUNCTION(BlueprintCallable, Category = "Functions")
