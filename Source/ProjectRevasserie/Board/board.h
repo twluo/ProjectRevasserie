@@ -45,5 +45,5 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties")
 	TArray<AboardTile*> mapArray;
 
-	
 };
+
