@@ -16,8 +16,8 @@ struct FMapDataTable : public FTableRowBase
 	/** The 'Name' column is the same as the XP Level */
 
 	/** Icon to use for Achivement */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = LevelUp)
-		TAssetPtr<UMaterial> tileMaterial;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LevelUp")
+	TAssetPtr<UMaterial> tileMaterial;
 };
 
 UCLASS()
