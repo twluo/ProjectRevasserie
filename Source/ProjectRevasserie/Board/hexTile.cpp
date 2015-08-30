@@ -3,6 +3,3 @@
 #include "ProjectRevasserie.h"
 #include "hexTile.h"
 
-
-
-

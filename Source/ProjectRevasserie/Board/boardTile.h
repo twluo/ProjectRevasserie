@@ -3,7 +3,10 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
+
 #include "boardTile.generated.h"
+
+
 
 UCLASS()
 class PROJECTREVASSERIE_API AboardTile : public AActor

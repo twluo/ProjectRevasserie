@@ -8,6 +8,7 @@
 /**
  * 
  */
+
 UCLASS()
 class PROJECTREVASSERIE_API AhexBoard : public Aboard
 {
