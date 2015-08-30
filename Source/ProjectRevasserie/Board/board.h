@@ -6,6 +6,20 @@
 #include "boardTile.h"
 #include "board.generated.h"
 
+
+USTRUCT(BlueprintType)
+struct FMapDataTable : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+
+	/** The 'Name' column is the same as the XP Level */
+
+	/** Icon to use for Achivement */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = LevelUp)
+		TAssetPtr<UMaterial> tileMaterial;
+};
+
 UCLASS()
 class PROJECTREVASSERIE_API Aboard : public AActor
 {
@@ -47,3 +61,4 @@ public:
 
 	
 };
+
