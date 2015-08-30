@@ -8,14 +8,9 @@
 /**
  * 
  */
-
-
 UCLASS()
 class PROJECTREVASSERIE_API AhexTile : public AboardTile
 {
 	GENERATED_BODY()
-	
-	
-	
 	
 };
