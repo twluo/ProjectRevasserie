@@ -17,7 +17,10 @@ struct FMapDataTable : public FTableRowBase
 
 	/** Icon to use for Achivement */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LevelUp")
-	TAssetPtr<UMaterial> tileMaterial;
+	int32 tileMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LevelUp")
+	int32 tileCost;
 };
 
 UCLASS()
