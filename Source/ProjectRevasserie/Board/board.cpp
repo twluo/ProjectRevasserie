@@ -35,8 +35,11 @@ TArray<AboardTile*> Aboard::getTilesInRange(int32 x, int32 y, int32 range) {
 }
 
 AboardTile* Aboard::getTile(int32 x, int32 y) {
-	int32 temp = y * NumOfTilesX + x;
-	return mapArray[temp];
+	if (inBounds(x, y)) {
+		int32 temp = y * NumOfTilesX + x;
+		return mapArray[temp];
+	}
+	return NULL;
 }
 
 bool Aboard::inBounds(int32 x, int32 y) {

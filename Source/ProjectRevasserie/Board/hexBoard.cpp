@@ -69,6 +69,8 @@ TArray<AboardTile*> AhexBoard::getTilesInRange(int32 x, int32 y, int32 range) {
 		Queue.Dequeue(tempPair);
 		tempTile = tempPair.Key;
 		cost = tempPair.Value;
+		if (!tilesInRange.Contains(tempTile))
+			tempTile->Cost = cost;
 		tilesInRange.AddUnique(tempTile);
 		TArray<AboardTile*> neighbors = getNeighbors(tempTile->X, tempTile->Y);
 		for (int i = 0; i < neighbors.Num(); i++) {

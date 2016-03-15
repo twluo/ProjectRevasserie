@@ -34,4 +34,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (ExposeOnSpawn = true))
 	int32 MovementCost;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties")
+	int32 Cost;
+
 };
