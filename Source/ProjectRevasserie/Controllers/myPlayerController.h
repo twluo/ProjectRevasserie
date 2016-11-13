@@ -21,12 +21,21 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	UFUNCTION(BlueprintCallable, Category = "PlayerControllerFunctions")
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
 	TArray<AbasicCharacter*> getAllCharacters();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerControllerProperties")
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
+	void startTurn();
+
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
+	void endTurn();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
+	bool turnStatus;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
 	int32 playerId;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerControllerProperties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
 	TArray<AbasicCharacter*> characterList;
 };

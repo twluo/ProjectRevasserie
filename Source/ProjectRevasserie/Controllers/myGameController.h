@@ -22,18 +22,21 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	UFUNCTION(BlueprintCallable, Category = "GameControllerFunctions")
+	UFUNCTION(BlueprintCallable, Category = "GameController|Functions")
 	TArray<AbasicCharacter*> getAllCharacters();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameControllerProperties")
+	UFUNCTION(BlueprintCallable, Category = "GameController|Functions")
+	void nextTurn();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameController|Properties")
 	Aboard* board;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameControllerProperties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameController|Properties")
 	TArray<AmyPlayerController*> players;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameControllerProperties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameController|Properties")
 	float turnTimeLimit;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameControllerProperties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameController|Properties")
 	AmyPlayerController* activePlayer;
 };

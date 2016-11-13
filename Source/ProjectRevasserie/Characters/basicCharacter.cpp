@@ -9,7 +9,6 @@ AbasicCharacter::AbasicCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -38,3 +37,11 @@ void AbasicCharacter::setLocation(int32 x, int32 y) {
 	this->y = y;
 }
 
+void AbasicCharacter::startTurn() {
+	remainingMoves = movementRange;
+	turnStatus = true;
+}
+
+void AbasicCharacter::endTurn() {
+	turnStatus = false;
+}

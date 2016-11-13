@@ -33,3 +33,9 @@ TArray<AbasicCharacter*> AmyGameController::getAllCharacters() {
 	}
 	return characterList;
 }
+
+void AmyGameController::nextTurn() {
+	activePlayer->endTurn();
+	activePlayer = players[(activePlayer->playerId + 1) % players.Num()];
+	activePlayer->startTurn();
+}

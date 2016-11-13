@@ -29,3 +29,17 @@ void AmyPlayerController::Tick( float DeltaTime )
 TArray<AbasicCharacter*> AmyPlayerController::getAllCharacters() {
 	return characterList;
 }
+
+void AmyPlayerController::startTurn() {
+	this->turnStatus = true;
+	for (int i = 0; i < characterList.Num(); i++) {
+		characterList[i]->startTurn();
+	}
+}
+
+void AmyPlayerController::endTurn() {
+	this->turnStatus = false;
+	for (int i = 0; i < characterList.Num(); i++) {
+		characterList[i]->endTurn();
+	}
+}

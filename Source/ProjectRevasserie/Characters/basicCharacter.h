@@ -24,31 +24,47 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UFUNCTION(BlueprintCallable, Category = "Functions")
+	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
 	virtual void setLocation(int32 x, int32 y);
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "CharacterData")
+	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
+	virtual void startTurn();
+
+	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
+	virtual void endTurn();
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 hp;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "CharacterData")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 mp;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "CharacterData")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 attackPower;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "CharacterData")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 defense;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "CharacterData")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 movementRange;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LocationData", Meta = (ExposeOnSpawn = true))
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	int32 attackRange;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	bool turnStatus;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	int32 remainingMoves;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
 	Aboard* board;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "LocationData", Meta = (ExposeOnSpawn = true))
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
 	int32 x;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "LocationData", Meta = (ExposeOnSpawn = true))
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
 	int32 y;
+
 	
 };

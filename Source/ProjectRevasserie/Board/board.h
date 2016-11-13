@@ -38,28 +38,28 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	UFUNCTION(BlueprintCallable, Category = "Functions")
+	UFUNCTION(BlueprintCallable, Category = "Board|Functions")
 	virtual TArray<AboardTile*> getNeighbors(int32 x, int32 y);
 
-	UFUNCTION(BlueprintCallable, Category = "Functions")
+	UFUNCTION(BlueprintCallable, Category = "Board|Functions")
 	virtual TArray<AboardTile*> getTilesInRange(int32 x, int32 y, int32 range);
 
-	UFUNCTION(BlueprintCallable, Category = "Functions")
+	UFUNCTION(BlueprintCallable, Category = "Board|Functions")
 	AboardTile* getTile(int32 x, int32 y);
 
-	UFUNCTION(BlueprintCallable, Category = "Functions")
+	UFUNCTION(BlueprintCallable, Category = "Board|Functions")
 	bool inBounds(int32 x, int32 y);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (ClampMin = 1, UIMin = 1))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board|Properties", meta = (ClampMin = 1, UIMin = 1))
 	int32 NumOfTilesX;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (ClampMin = 1, UIMin = 1))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board|Properties", meta = (ClampMin = 1, UIMin = 1))
 	int32 NumOfTilesY;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (ClampMin = 1, UIMin = 1))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board|Properties", meta = (ClampMin = 1, UIMin = 1))
 	float TileSize;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board|Properties")
 	TArray<AboardTile*> mapArray;
 
 	
