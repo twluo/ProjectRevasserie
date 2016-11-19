@@ -1,12 +1,12 @@
-# Project Revasserie
+#Welcome to ProjectRevasserie!
 
-A Work in proggress..
+##Goal:
+To design a tactical role-playing game through Unreal Game Engine (4.8.3). 
 
-# Todo:
+For more information here's our [wiki] (https://github.com/twluo/ProjectRevasserie/wiki).
 
-* Design Hierarchy
-* Make a camera for each player and switch accordingly.
-* Design the UI
-* Refactor BP into C++
-* Make it so that you can't move into an occupied tile
-* Attacking enemy
+##Contributors:
+* [Tony Luo](https://github.com/twluo)
+* [Dhruv Kaushal](https://github.com/dhruvrrp)
+* [Alan Chin](https://github.com/aqchin)
+* [Patrick Yang](https://github.com/infinitestory)
