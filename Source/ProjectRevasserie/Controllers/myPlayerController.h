@@ -30,6 +30,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
 	void endTurn();
 
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
+	TArray<AboardTile*> selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange);
+
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
+	TArray<AboardTile*> deselectCharacter();
+
+	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
+	void moveCharacter(AboardTile* tile);
+
+	//Properties
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
 	bool turnStatus;
 
@@ -38,4 +48,7 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
 	TArray<AbasicCharacter*> characterList;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerController|Properties")
+	AbasicCharacter* activeCharacter;
 };

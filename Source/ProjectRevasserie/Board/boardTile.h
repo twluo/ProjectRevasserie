@@ -24,18 +24,18 @@ public:
 	virtual void Tick( float DeltaSeconds ) override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties", meta = (ClampMin = 1, UIMin = 1, ExposeOnSpawn = true))
-	float Size;
+	float size;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties", meta = (ExposeOnSpawn = true))
-	int32 X;
+	int32 x;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties", meta = (ExposeOnSpawn = true))
-	int32 Y;
+	int32 y;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties", meta = (ExposeOnSpawn = true))
-	int32 MovementCost;
+	int32 movementCost;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties")
-	int32 Cost;
+	int32 cost;
 
 };

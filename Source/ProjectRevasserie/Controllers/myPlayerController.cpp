@@ -43,3 +43,20 @@ void AmyPlayerController::endTurn() {
 		characterList[i]->endTurn();
 	}
 }
+
+TArray<AboardTile*> AmyPlayerController::selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange){
+	activeCharacter = character;
+	activeCharacter->tilesInRange = tilesInRange;
+	return tilesInRange;
+}
+
+TArray<AboardTile*> AmyPlayerController::deselectCharacter(){
+	AbasicCharacter *character = activeCharacter;
+	activeCharacter = NULL;
+	return character->tilesInRange;
+}
+
+void AmyPlayerController::moveCharacter(AboardTile* tile) {
+	activeCharacter->move(tile);
+	activeCharacter->remainingMoves -= tile->cost;
+}

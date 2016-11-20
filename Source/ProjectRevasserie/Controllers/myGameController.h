@@ -4,6 +4,7 @@
 
 #include "GameFramework/Actor.h"
 #include "myPlayerController.h"
+#include "Characters/basicCharacter.h"
 #include "Board/board.h"
 #include "myGameController.generated.h"
 
@@ -27,6 +28,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "GameController|Functions")
 	void nextTurn();
+
+	UFUNCTION(BlueprintCallable, Category = "GameController|Functions")
+	void onCharacterClicked(AbasicCharacter* character);
+
+	UFUNCTION(BlueprintCallable, Category = "GameController|Functions")
+	void onTileClicked(AboardTile* tile);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameController|Properties")
 	Aboard* board;

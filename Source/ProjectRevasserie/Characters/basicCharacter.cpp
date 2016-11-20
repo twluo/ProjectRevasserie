@@ -32,9 +32,8 @@ void AbasicCharacter::SetupPlayerInputComponent(class UInputComponent* InputComp
 
 }
 
-void AbasicCharacter::setLocation(int32 x, int32 y) {
-	this->x = x;
-	this->y = y;
+void AbasicCharacter::setLocation(AboardTile* tile) {
+	this->currentTile = tile; 
 }
 
 void AbasicCharacter::startTurn() {
@@ -44,4 +43,8 @@ void AbasicCharacter::startTurn() {
 
 void AbasicCharacter::endTurn() {
 	turnStatus = false;
+}
+
+void AbasicCharacter::move_Implementation(AboardTile* tile) {
+	return;
 }

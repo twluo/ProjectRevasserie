@@ -39,3 +39,30 @@ void AmyGameController::nextTurn() {
 	activePlayer = players[(activePlayer->playerId + 1) % players.Num()];
 	activePlayer->startTurn();
 }
+
+void AmyGameController::onCharacterClicked(AbasicCharacter* character){
+	if (!character || !character->turnStatus) {
+		return;
+	}
+	TArray<AboardTile*> tilesInRange = board->getTilesInRange(character->currentTile, character->remainingMoves + character->attackRange);
+	if (activePlayer->activeCharacter == NULL) {
+		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange), character->remainingMoves);
+	}
+	else if (activePlayer->activeCharacter == character) {
+		board->unhighlightTiles(activePlayer->deselectCharacter());
+	}
+	else {
+		board->unhighlightTiles(activePlayer->deselectCharacter());
+		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange), character->remainingMoves);
+	}
+}
+
+void AmyGameController::onTileClicked(AboardTile* tile) {
+	if (!tile || activePlayer->activeCharacter == NULL) {
+		return;
+	}
+	if (activePlayer->activeCharacter->tilesInRange.Contains(tile) && activePlayer->activeCharacter->remainingMoves >= tile->cost) {
+		activePlayer->moveCharacter(tile);
+		board->unhighlightTiles(activePlayer->deselectCharacter());
+	}
+}

@@ -3,8 +3,10 @@
 #include "ProjectRevasserie.h"
 #include "hexBoard.h"
 
-TArray<AboardTile*> AhexBoard::getNeighbors(int32 x, int32 y) {
+TArray<AboardTile*> AhexBoard::getNeighbors(AboardTile* tile) {
 
+	int x = tile->x;
+	int y = tile->y;
 	TArray<AboardTile*> neighbors;
 	//Odd Row
 	if (y % 2 == 0) {
@@ -52,7 +54,7 @@ TArray<AboardTile*> AhexBoard::getNeighbors(int32 x, int32 y) {
 }
 
 
-TArray<AboardTile*> AhexBoard::getTilesInRange(int32 x, int32 y, int32 range) {
+TArray<AboardTile*> AhexBoard::getTilesInRange(AboardTile* tile, int32 range) {
 	//make a pair <Tile, dist so far>
 	//if dist so far + cost is less than range then add to queue
 	//do BFS
@@ -61,7 +63,7 @@ TArray<AboardTile*> AhexBoard::getTilesInRange(int32 x, int32 y, int32 range) {
 	TQueue<TPair<AboardTile*, int32>> Queue;
 	//Solution Array
 	TArray<AboardTile*> tilesInRange;
-	AboardTile* tempTile = this->getTile(x, y);
+	AboardTile* tempTile = tile;
 	int32 cost = 0;
 	Queue.Enqueue(TPair<AboardTile*, int32>(TPairInitializer<AboardTile*, int32>(tempTile,cost)));
 	while(!Queue.IsEmpty()) {
@@ -70,12 +72,12 @@ TArray<AboardTile*> AhexBoard::getTilesInRange(int32 x, int32 y, int32 range) {
 		tempTile = tempPair.Key;
 		cost = tempPair.Value;
 		if (!tilesInRange.Contains(tempTile))
-			tempTile->Cost = cost;
+			tempTile->cost = cost;
 		tilesInRange.AddUnique(tempTile);
-		TArray<AboardTile*> neighbors = getNeighbors(tempTile->X, tempTile->Y);
+		TArray<AboardTile*> neighbors = getNeighbors(tempTile);
 		for (int i = 0; i < neighbors.Num(); i++) {
 			AboardTile* tempNeighborTile = neighbors[i];
-			int32 NeighborCost = cost + tempNeighborTile->MovementCost;
+			int32 NeighborCost = cost + tempNeighborTile->movementCost;
 			if (!tilesInRange.Contains(tempNeighborTile) && cost < range) {
 				Queue.Enqueue(TPair<AboardTile*, int32>(TPairInitializer<AboardTile*, int32>(tempNeighborTile, NeighborCost)));
 			}

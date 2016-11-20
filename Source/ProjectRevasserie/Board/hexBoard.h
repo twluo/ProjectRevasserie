@@ -17,8 +17,8 @@ class PROJECTREVASSERIE_API AhexBoard : public Aboard
 	
 public:
 
-	virtual TArray<AboardTile*> getNeighbors(int32 x, int32 y) override;
+	virtual TArray<AboardTile*> getNeighbors(AboardTile* tile) override;
 
-	virtual TArray<AboardTile*> getTilesInRange(int32 x, int32 y, int32 range) override;
+	virtual TArray<AboardTile*> getTilesInRange(AboardTile* tile, int32 range) override;
 	
 };

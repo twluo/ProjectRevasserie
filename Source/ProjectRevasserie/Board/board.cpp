@@ -26,24 +26,33 @@ void Aboard::Tick( float DeltaTime )
 
 }
 
-TArray<AboardTile*> Aboard::getNeighbors(int32 x, int32 y) {
+TArray<AboardTile*> Aboard::getNeighbors(AboardTile* tile) {
 	return mapArray;
 }
 
-TArray<AboardTile*> Aboard::getTilesInRange(int32 x, int32 y, int32 range) {
+TArray<AboardTile*> Aboard::getTilesInRange(AboardTile* tile, int32 range) {
 	return mapArray;
+}
+
+
+void Aboard::highlightTiles_Implementation(const TArray<AboardTile*>& tilesInRange, int32 movementCost) {
+	return;
+}
+
+void Aboard::unhighlightTiles_Implementation(const TArray<AboardTile*>& tilesinRange) {
+	return;
 }
 
 AboardTile* Aboard::getTile(int32 x, int32 y) {
 	if (inBounds(x, y)) {
-		int32 temp = y * NumOfTilesX + x;
+		int32 temp = y * numOfTilesX + x;
 		return mapArray[temp];
 	}
 	return NULL;
 }
 
 bool Aboard::inBounds(int32 x, int32 y) {
-	if (y >= 0 && y < NumOfTilesY && x >= 0 && x < NumOfTilesX)
+	if (y >= 0 && y < numOfTilesY && x >= 0 && x < numOfTilesX)
 		return true;
 	else
 		return false;

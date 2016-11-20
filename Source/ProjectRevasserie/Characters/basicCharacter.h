@@ -24,8 +24,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
+	//Functions
 	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
-	virtual void setLocation(int32 x, int32 y);
+	virtual void setLocation(AboardTile* tile);
 
 	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
 	virtual void startTurn();
@@ -33,6 +34,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
 	virtual void endTurn();
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Character|Functions")
+	void move(AboardTile* tile);
+
+	//Stats
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 hp;
 
@@ -51,20 +56,18 @@ public:
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
 	int32 attackRange;
 
+	//Properties
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
 	bool turnStatus;
 
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
 	int32 remainingMoves;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
-	Aboard* board;
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	TArray<AboardTile*> tilesInRange;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
-	int32 x;
-
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|LocationData", Meta = (ExposeOnSpawn = true))
-	int32 y;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character|Properties", Meta = (ExposeOnSpawn = true))
+	AboardTile* currentTile;
 
 	
 };
