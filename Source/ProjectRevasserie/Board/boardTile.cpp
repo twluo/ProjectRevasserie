@@ -25,3 +25,6 @@ void AboardTile::Tick( float DeltaTime )
 	Super::Tick( DeltaTime );
 }
 
+bool AboardTile::isOccupied() {
+    return (characterOnTile != NULL);
+}

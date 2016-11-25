@@ -25,48 +25,51 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	//Functions
-	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
+	UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
 	virtual void setLocation(AboardTile* tile);
 
-	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
+	UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
 	virtual void startTurn();
 
-	UFUNCTION(BlueprintCallable, Category = "Character|Functions")
+	UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
 	virtual void endTurn();
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Character|Functions")
-	void move(AboardTile* tile);
+    UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
+    void move(AboardTile* tile);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "basicCharacter|Functions")
+	void postMove(AboardTile* tile);
 
 	//Stats
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 hp;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 mp;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 attackPower;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 defense;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 movementRange;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Stats")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 attackRange;
 
 	//Properties
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Properties")
 	bool turnStatus;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Properties")
 	int32 remainingMoves;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "Character|Properties")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Properties")
 	TArray<AboardTile*> tilesInRange;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character|Properties", Meta = (ExposeOnSpawn = true))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "basicCharacter|Properties", Meta = (ExposeOnSpawn = true))
 	AboardTile* currentTile;
 
 	

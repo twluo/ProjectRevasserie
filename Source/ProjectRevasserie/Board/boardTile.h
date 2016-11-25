@@ -3,10 +3,9 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
-
 #include "boardTile.generated.h"
 
-
+class AbasicCharacter;
 
 UCLASS()
 class PROJECTREVASSERIE_API AboardTile : public AActor
@@ -22,7 +21,10 @@ public:
 	
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
-	
+
+    UFUNCTION(BlueprintCallable, Category = "BoardTile|Functions")
+    bool isOccupied();
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties", meta = (ClampMin = 1, UIMin = 1, ExposeOnSpawn = true))
 	float size;
 
@@ -38,4 +40,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties")
 	int32 cost;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BoardTile|Properties")
+    AbasicCharacter* characterOnTile;
 };

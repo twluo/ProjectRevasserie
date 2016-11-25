@@ -36,6 +36,9 @@ TArray<AbasicCharacter*> AmyGameController::getAllCharacters() {
 
 void AmyGameController::nextTurn() {
 	activePlayer->endTurn();
+    if (activePlayer->activeCharacter) {
+        board->unhighlightTiles(activePlayer->deselectCharacter());
+    }
 	activePlayer = players[(activePlayer->playerId + 1) % players.Num()];
 	activePlayer->startTurn();
 }
@@ -45,7 +48,7 @@ void AmyGameController::onCharacterClicked(AbasicCharacter* character){
 		return;
 	}
 	TArray<AboardTile*> tilesInRange = board->getTilesInRange(character->currentTile, character->remainingMoves + character->attackRange);
-	if (activePlayer->activeCharacter == NULL) {
+	if (!activePlayer->activeCharacter) {
 		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange), character->remainingMoves);
 	}
 	else if (activePlayer->activeCharacter == character) {
@@ -58,10 +61,10 @@ void AmyGameController::onCharacterClicked(AbasicCharacter* character){
 }
 
 void AmyGameController::onTileClicked(AboardTile* tile) {
-	if (!tile || activePlayer->activeCharacter == NULL) {
+	if (!tile || !activePlayer->activeCharacter) {
 		return;
 	}
-	if (activePlayer->activeCharacter->tilesInRange.Contains(tile) && activePlayer->activeCharacter->remainingMoves >= tile->cost) {
+	if (activePlayer->activeCharacter->tilesInRange.Contains(tile) && activePlayer->activeCharacter->remainingMoves >= tile->cost && !tile->isOccupied()) {
 		activePlayer->moveCharacter(tile);
 		board->unhighlightTiles(activePlayer->deselectCharacter());
 	}

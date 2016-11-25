@@ -45,6 +45,13 @@ void AbasicCharacter::endTurn() {
 	turnStatus = false;
 }
 
-void AbasicCharacter::move_Implementation(AboardTile* tile) {
-	return;
+void AbasicCharacter::postMove_Implementation(AboardTile* tile) {
+
+}
+void AbasicCharacter::move(AboardTile* tile) {
+    AboardTile* prevTile = currentTile;
+    prevTile->characterOnTile = NULL;
+    currentTile = tile;
+    currentTile->characterOnTile = this;
+    postMove(tile);
 }
