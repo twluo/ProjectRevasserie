@@ -8,3 +8,4 @@ DoNotSync
 *.sln
 *.suo
 *.opensdf
+*.VC.db
