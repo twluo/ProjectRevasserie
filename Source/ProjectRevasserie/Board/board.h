@@ -45,10 +45,10 @@ public:
 	virtual TArray<AboardTile*> getTilesInRange(AboardTile* tile, int32 range);
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Board|Functions")
-	void highlightTiles(const TArray<AboardTile*>& tilesInRange, int32 movementCost);
+	void highlightTiles(AbasicCharacter *character);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Board|Functions")
-	void unhighlightTiles(const TArray<AboardTile*>& tilesInRange);
+	void unhighlightTiles(AbasicCharacter *character);
 
 	UFUNCTION(BlueprintCallable, Category = "Board|Functions")
 	AboardTile* getTile(int32 x, int32 y);

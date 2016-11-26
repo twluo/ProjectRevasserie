@@ -31,10 +31,10 @@ public:
 	void endTurn();
 
 	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
-	TArray<AboardTile*> selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange);
+	AbasicCharacter* selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange);
 
 	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
-	TArray<AboardTile*> deselectCharacter();
+    AbasicCharacter* deselectCharacter();
 
 	UFUNCTION(BlueprintCallable, Category = "PlayerController|Functions")
 	void moveCharacter(AboardTile* tile);

@@ -49,9 +49,17 @@ void AbasicCharacter::postMove_Implementation(AboardTile* tile) {
 
 }
 void AbasicCharacter::move(AboardTile* tile) {
-    AboardTile* prevTile = currentTile;
-    prevTile->characterOnTile = NULL;
+    if (currentTile) {
+        currentTile->characterOnTile = NULL;
+    }
     currentTile = tile;
     currentTile->characterOnTile = this;
-    postMove(tile);
+    postMove(currentTile);
+}
+
+bool AbasicCharacter::isFriendly(AbasicCharacter* character)
+{
+    if (character)
+        return playerControllerId == character->playerControllerId;
+    return true;
 }

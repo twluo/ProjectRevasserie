@@ -44,16 +44,16 @@ void AmyPlayerController::endTurn() {
 	}
 }
 
-TArray<AboardTile*> AmyPlayerController::selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange){
+AbasicCharacter* AmyPlayerController::selectCharacter(AbasicCharacter* character, TArray<AboardTile*> tilesInRange){
 	activeCharacter = character;
 	activeCharacter->tilesInRange = tilesInRange;
-	return tilesInRange;
+	return activeCharacter;
 }
 
-TArray<AboardTile*> AmyPlayerController::deselectCharacter(){
+AbasicCharacter* AmyPlayerController::deselectCharacter(){
 	AbasicCharacter *character = activeCharacter;
 	activeCharacter = NULL;
-	return character->tilesInRange;
+	return character;
 }
 
 void AmyPlayerController::moveCharacter(AboardTile* tile) {

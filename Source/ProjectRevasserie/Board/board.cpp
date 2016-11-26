@@ -35,11 +35,11 @@ TArray<AboardTile*> Aboard::getTilesInRange(AboardTile* tile, int32 range) {
 }
 
 
-void Aboard::highlightTiles_Implementation(const TArray<AboardTile*>& tilesInRange, int32 movementCost) {
+void Aboard::highlightTiles_Implementation(AbasicCharacter *character) {
 	return;
 }
 
-void Aboard::unhighlightTiles_Implementation(const TArray<AboardTile*>& tilesinRange) {
+void Aboard::unhighlightTiles_Implementation(AbasicCharacter *character) {
 	return;
 }
 

@@ -40,6 +40,9 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "basicCharacter|Functions")
 	void postMove(AboardTile* tile);
 
+    UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
+    bool isFriendly(AbasicCharacter* character);
+
 	//Stats
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")
 	int32 hp;
@@ -72,5 +75,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "basicCharacter|Properties", Meta = (ExposeOnSpawn = true))
 	AboardTile* currentTile;
 
-	
+    UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Properties")
+    int32 playerControllerId;
 };

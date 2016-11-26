@@ -49,14 +49,14 @@ void AmyGameController::onCharacterClicked(AbasicCharacter* character){
 	}
 	TArray<AboardTile*> tilesInRange = board->getTilesInRange(character->currentTile, character->remainingMoves + character->attackRange);
 	if (!activePlayer->activeCharacter) {
-		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange), character->remainingMoves);
+		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange));
 	}
 	else if (activePlayer->activeCharacter == character) {
 		board->unhighlightTiles(activePlayer->deselectCharacter());
 	}
 	else {
 		board->unhighlightTiles(activePlayer->deselectCharacter());
-		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange), character->remainingMoves);
+		board->highlightTiles(activePlayer->selectCharacter(character, tilesInRange));
 	}
 }
 
