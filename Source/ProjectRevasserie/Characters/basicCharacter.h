@@ -41,7 +41,7 @@ public:
 	void postMove(AboardTile* tile);
 
     UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
-    int32 getTileColor(AboardTile* tile);
+    int32 getTileStatus(AboardTile* tile);
 
 	//Stats
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")

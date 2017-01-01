@@ -62,7 +62,7 @@ void AbasicCharacter::move(AboardTile* tile) {
     2 means enemy tile
     3 means friendly tile
 */
-int32 AbasicCharacter::getTileColor(AboardTile* tile) {
+int32 AbasicCharacter::getTileStatus(AboardTile* tile) {
     if (tile) {
         if (!tile->characterOnTile) {
             return tile->cost > this->remainingMoves ? 2 : 1;
