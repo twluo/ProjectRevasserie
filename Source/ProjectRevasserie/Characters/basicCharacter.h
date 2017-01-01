@@ -41,7 +41,7 @@ public:
 	void postMove(AboardTile* tile);
 
     UFUNCTION(BlueprintCallable, Category = "basicCharacter|Functions")
-    bool isFriendly(AbasicCharacter* character);
+    int32 getTileColor(AboardTile* tile);
 
 	//Stats
 	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category = "basicCharacter|Stats")

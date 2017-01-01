@@ -57,9 +57,17 @@ void AbasicCharacter::move(AboardTile* tile) {
     postMove(currentTile);
 }
 
-bool AbasicCharacter::isFriendly(AbasicCharacter* character)
-{
-    if (character)
-        return playerControllerId == character->playerControllerId;
-    return true;
+/*
+    1 means empty tile
+    2 means enemy tile
+    3 means friendly tile
+*/
+int32 AbasicCharacter::getTileColor(AboardTile* tile) {
+    if (tile) {
+        if (!tile->characterOnTile) {
+            return tile->cost > this->remainingMoves ? 2 : 1;
+        }
+        return playerControllerId == tile->characterOnTile->playerControllerId ? 3 : 2;
+    }
+    return 0;
 }
